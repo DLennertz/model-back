@@ -23,6 +23,7 @@ public class ModelVO {
 	private Integer idHairColor;
 	private Integer idEyeColor;
 	private Integer id;
+	private PhotoVO foto;
 	
 	public ModelVO() {
 		this.photos = new ArrayList<PhotoVO>();
@@ -133,6 +134,15 @@ public class ModelVO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public PhotoVO getFoto() {
+		return foto;
+	}
+
+	public void setFoto(PhotoVO foto) {
+		this.foto = foto;
+	}
+
 	
 	
 

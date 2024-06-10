@@ -90,6 +90,7 @@ public class ModelService {
 				}
 			);
 		}
+		
 		return this.convertModelToModelVO(savedModel) ;
 	}
 
@@ -109,11 +110,13 @@ public class ModelService {
 		modelVO.setBoys(model.getModelBoys());
 		modelVO.setBust(model.getModelBust());
 		modelVO.setCountry(model.getModelCountry().getCountryName());
-		modelVO.setEyeColor(model.getModelEyeColor().getEyeColorName());	
-		model.getPhoto().stream().forEach((item) -> {
-			if(!item.isDeleted())
-			modelVO.getPhotos().add(photoService.convertPhotoToPhotoVO(item));
-			});
+		modelVO.setEyeColor(model.getModelEyeColor().getEyeColorName());
+		if(model.getPhoto() != null) {
+			model.getPhoto().stream().forEach((item) -> {
+				if(!item.isDeleted())
+				modelVO.getPhotos().add(photoService.convertPhotoToPhotoVO(item));
+				});
+		}
 		modelVO.setGirls(model.getModelGirls());
 		modelVO.setHairColor(model.getModelHairColor().getHairColorName());
 		modelVO.setHeight(model.getModelHeight());
@@ -139,6 +142,7 @@ public class ModelService {
 		model.setModelName(modelVO.getNomeCompleto());
 		model.setModelRating(modelVO.getRating());
 		model.setModelWaist(modelVO.getWaist());
+		model.setModelBirthday(modelVO.getDataNascimento());
 		
 		model.setModelPosition(this.getPosition(modelVO.getRating()));		
 		return model;

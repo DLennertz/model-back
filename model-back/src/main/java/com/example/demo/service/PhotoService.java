@@ -39,7 +39,7 @@ public class PhotoService {
 		photoRepository.save(photo);
 	}
 	
-	private Photo convertPhotoVOToPhoto(PhotoVO photoVO) {
+	public Photo convertPhotoVOToPhoto(PhotoVO photoVO) {
 		Photo photo = new Photo();
 		photo.setDeleted(photoVO.isDeleted());
 		photo.setModel(modelRepository.findById(photoVO.getModelID()).get());
