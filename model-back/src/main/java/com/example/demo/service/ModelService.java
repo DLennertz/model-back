@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.VO.ModelVO;
-import com.example.demo.VO.StatsSheet;
 import com.example.demo.entities.Model;
 import com.example.demo.entities.Position;
 import com.example.demo.repository.CountryRepository;
@@ -47,20 +46,6 @@ public class ModelService {
 		return listModelVOBirthday;
 	}
 
-	public StatsSheet getStats() {
-		StatsSheet statsSheet = new StatsSheet();
-		statsSheet.setCountWife((modelRepository.countByModelPosition(1)));
-		statsSheet.setCountHRC((modelRepository.countByModelPosition(2)));
-		statsSheet.setCountRC((modelRepository.countByModelPosition(3)));
-		statsSheet.setCountHC((modelRepository.countByModelPosition(4)));
-		statsSheet.setCountC((modelRepository.countByModelPosition(5)));
-		statsSheet.setCountHConcubine((modelRepository.countByModelPosition(6)));
-		statsSheet.setCountConcubine((modelRepository.countByModelPosition(7)));
-		statsSheet.setCountHOneOff((modelRepository.countByModelPosition(8)));
-		statsSheet.setCountOneOff((modelRepository.countByModelPosition(9)));
-		
-		return statsSheet;
-	}
 
 	public List<ModelVO> findAllPaginated(Pageable page, String orderBy) {
 		List<ModelVO> listModelVO= new ArrayList<ModelVO>();

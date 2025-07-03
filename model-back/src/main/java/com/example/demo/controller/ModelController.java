@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.VO.ModelVO;
-import com.example.demo.VO.StatsSheet;
 import com.example.demo.entities.Model;
 import com.example.demo.service.ModelService;
 
@@ -53,10 +52,6 @@ public class ModelController {
 		return modelService.Aniversariante();
 	}
 	
-	@GetMapping("/stats")
-	public StatsSheet getStats() {
-		return modelService.getStats();
-	}
 
 	@PostMapping("/saveSemFoto")
 	public ModelVO saveModel(@RequestPart(name="newModel") ModelVO newModel){
