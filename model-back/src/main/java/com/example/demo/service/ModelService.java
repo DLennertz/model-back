@@ -79,6 +79,13 @@ public class ModelService {
 			
 		}
 	}
+	
+	public List<ModelVO> findAll() {
+		List<ModelVO> listModelVO= new ArrayList<ModelVO>();
+		
+		modelRepository.findAll().stream().forEach((item) -> listModelVO.add(convertModelToModelVO(item)));
+		return listModelVO;
+	}
 
 	public ModelVO saveModel(ModelVO newModel) {
 		Model savedModel = modelRepository.save(this.convertModelVOToModel(newModel));

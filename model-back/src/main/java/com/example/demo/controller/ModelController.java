@@ -42,6 +42,12 @@ public class ModelController {
 		return modelService.findAllPaginated(page,orderBy);
 	}
 	
+	@GetMapping("/all")
+	public List<ModelVO> findAllPaginated(){
+		return modelService.findAll();
+	}
+	
+	
 	@GetMapping("/aniversariante")
 	public List<ModelVO> aniversariante(){
 		return modelService.Aniversariante();
